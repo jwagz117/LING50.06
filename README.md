@@ -29,4 +29,4 @@ To run the code in this repository, put all your binomial expressions of interes
 bash getPlots.sh
 ````
 
-If you are running Python 2.x, lines 22 and 24 of `getPlots.sh` will have to be modified. Instead of `python3`, simply write `python.`
+If you are running Python 2.x, lines 22 and 24 of `getPlots.sh` will have to be modified. Instead of `python3`, simply write `python`.
