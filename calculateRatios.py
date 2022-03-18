@@ -4,7 +4,6 @@
 
 import sys
 import pandas as pd
-from scipy.special import logsumexp
 import numpy as np
 import math
 import matplotlib.pyplot as plt
@@ -16,6 +15,7 @@ if __name__ == '__main__':
 
     outfilename = "ratios/" + str(filename[8:-4]) + ".txt"
 
+    # construct a dataFrame object from the CSV file passed in
     df = pd.read_csv(filename)
 
     outfile = open(outfilename, "w")
@@ -23,6 +23,7 @@ if __name__ == '__main__':
     x = []
     y = []
 
+    # loop over the dataFrame object and calculate the ratio change from year to year
     for index, row in df.iterrows():
         ratio = row[1] / row[2]
         if np.isnan(ratio):
@@ -37,6 +38,7 @@ if __name__ == '__main__':
     np_x = np.array(x)
     np_y = np.array(y)
 
+    # splice the filename string to show the exact ratio as the plot title
     phrase = filename[8:-4].split("-")
     words = phrase[0].split("_")
 
@@ -54,6 +56,7 @@ if __name__ == '__main__':
     plt.ylabel("Ratio")
     plt.title(title)
 
+    # save a plot of the ratio graph under the same CSV name in the ratios directory
     plotfilename = "ratios/" + str(filename[8:-4]) + ".png"
     plt.savefig(plotfilename)
 
